@@ -16,10 +16,10 @@ function AppNavbar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link to="/" className="nav-link">
-              Product
+              Products
             </Link>
             <Link to="cart" className="nav-link">
-              Cart-{cart.length} item
+              Cart-{cart.length} items
             </Link>
           </Nav>
         </Navbar.Collapse>

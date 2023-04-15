@@ -5,8 +5,8 @@ import productsSlice from "./slices/products-slice";
 
 export const store = configureStore({
   reducer: {
-    products: productsSlice,
-    cart: cartSlice,
-    local: storageSlice,
+    products: productsSlice, // products reducer
+    cart: cartSlice, // cart reducer
+    local: storageSlice, // localStorage reducer
   },
 });

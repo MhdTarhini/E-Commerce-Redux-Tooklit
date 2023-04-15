@@ -8,12 +8,12 @@ import { fetchProducts } from "../rtk/slices/products-slice";
 import { addLocalProduct } from "./localStorage";
 
 function Products() {
-  const products = useSelector((state) => state.products);
+  const products = useSelector((state) => state.products); // useSelector to call reducers from store
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
+    dispatch(fetchProducts()); // dispatch FetchProducts from products-slice
+  }, [dispatch]);
 
   return (
     <Container>
@@ -21,15 +21,22 @@ function Products() {
         {products.map((product) => {
           return (
             <div className="col" key={product.id}>
-              <Card style={{ width: "18rem" }}>
+              <Card style={{ height: "500px", width: "300px" }}>
                 <Card.Img
-                  style={{ height: "300px" }}
+                  style={{ height: "250px" }}
                   variant="top"
                   src={product.image}
                 />
                 <Card.Body>
                   <Card.Title>{product.Title}</Card.Title>
-                  <Card.Text>{product.description}</Card.Text>
+                  <Card.Text
+                    style={{
+                      overflow: "hidden",
+                      width: "223px",
+                      height: "100px",
+                    }}>
+                    {product.description}
+                  </Card.Text>
                   <Card.Text>{product.price}$</Card.Text>
                   <Button
                     variant="primary"
